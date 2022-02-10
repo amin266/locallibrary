@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 import uuid # Required for unique book instances
 
+
+
+
 class Genre(models.Model):
     """
     Model representing a book genre (e.g. Science Fiction, Non Fiction).
@@ -13,6 +16,7 @@ class Genre(models.Model):
         String for representing the Model object (in Admin site etc.)
         """
         return self.name
+
 
 class Book(models.Model):
     """
@@ -39,7 +43,15 @@ class Book(models.Model):
         """
         Returns the url to access a particular book instance.
         """
-        return reverse('book-detail', args=[str(self.id)])
+        return reverse('catalog:book-detail', args=[str(self.id)])
+
+    def display_genre(self):
+        """
+        Creates a string for the Genre. This is required to display genre in Admin.
+        """
+        return ', '.join([ genre.name for genre in self.genre.all()[:3] ])
+
+        display_genre.short_description = 'Genre'
 
 
 class BookInstance(models.Model):
@@ -70,6 +82,7 @@ class BookInstance(models.Model):
         """
         return '%s (%s)' % (self.id,self.book.title)
 
+
 class Author(models.Model):
     """
     Model representing an author.
@@ -83,7 +96,7 @@ class Author(models.Model):
         """
         Returns the url to access a particular author instance.
         """
-        return reverse('author-detail', args=[str(self.id)])
+        return reverse('catalog:author-detail', args=[str(self.id)])
 
 
     def __str__(self):
