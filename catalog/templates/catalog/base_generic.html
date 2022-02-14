@@ -5,7 +5,7 @@
   {% block title %}<title>Local Library</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -14,18 +14,18 @@
   <link rel="stylesheet" href="{% static 'catalog/css/styles.css' %}">
 </head>
 
-<body>
+<body style="background-color:#91d2d8;">
 
   <div class="container-fluid">
 
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
-      <ul class="sidebar-nav">
-          <li style="background-color:yellow"><a href="{% url 'catalog:index' %}">Home</a></li>
-          <li style="background-color:red"><a href="">All books</a></li>
-          <li style="background-color:yellow"><a href="">All authors</a></li>
-          <li style="background-color:red"><a href="/admin/">Admin Page</a></li>
+      <ul class="sidebar-nav" style="background-color:black;margin-left:-15px;margin-right:20px;color:black;">
+          <b><li  style="background-color:black;font-size:35pt;height:75px;width:165px;padding-left:13px;"><a style="color:#b231b2;" href="{% url 'catalog:index' %}">Home</a></li></b>
+          <li  style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;padding-left:11px;"><a style="color:#91d2d8;" href="{% url 'catalog:books' %}">All books</a></li>
+          <li  style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;"><a style="color:#91d2d8;" href="{% url 'catalog:authors' %}">All authors</a></li>
+          <li  style="background-color:purple;font-size:25pt;font-style:italic;height:1000px;width:165px;padding-left:25px;"><a style="color:#91d2d8;" href="/admin/">Admin Page</a></li>
       </ul>
      {% endblock %}
       </div>

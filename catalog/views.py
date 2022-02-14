@@ -23,8 +23,12 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
 
-    model= models.Book
+    model = models.Book
     template_name = 'catalog/book_detail.html'
+
+class AuthorListView(generic.ListView):
+    model = models.Author
+    template_name = 'catalog/author_list.html'
 
 #def index(request
 #    # Generate counts of some of the main objects
