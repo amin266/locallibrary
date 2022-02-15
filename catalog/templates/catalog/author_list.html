@@ -2,10 +2,10 @@
 
 {% block content %}
   {% for author in author_list%}
-    <h3>Authors : <br><br><br>{{ author.last_name }}</h3>
+    <h3><a href="{% url 'catalog:authors_detail' author.id %}">{{ author.last_name }}</a></h3>
     <p> Authors first : {{ author.first_name }} </p>
-    <p>det of birth : {{ author.date_of_birth }}</p>
-    <p>dete of death : {{ author.date_of_death }}</p>
+    <p>date of birth : {{ author.date_of_birth }}</p>
+    <p>date of death : {{ author.date_of_death }}</p>
     <hr>
   {%  endfor %}
 {% endblock %}
