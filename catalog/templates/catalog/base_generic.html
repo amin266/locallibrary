@@ -25,7 +25,14 @@
           <b><li  style="background-color:black;font-size:35pt;height:75px;width:165px;padding-left:13px;"><a style="color:#b231b2;" href="{% url 'catalog:index' %}">Home</a></li></b>
           <li  style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;padding-left:11px;"><a style="color:#91d2d8;" href="{% url 'catalog:books' %}">All books</a></li>
           <li  style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;"><a style="color:#91d2d8;" href="{% url 'catalog:authors' %}">All authors</a></li>
-          <li  style="background-color:purple;font-size:25pt;font-style:italic;height:1000px;width:165px;padding-left:25px;"><a style="color:#91d2d8;" href="/admin/">Admin Page</a></li>
+          <li  style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;padding-left:25px;"><a style="color:#91d2d8;" href="/admin/">Admin Page</a></li>
+          <li style="background-color:purple;font-size:25pt;font-style:italic;height:70px;width:165px;padding-left:11px;padding-top:45px;"><a href="{% url 'catalog:my-borrowed' %}">My Borrowed</a></li>
+      {% if user.is_authenticated %}
+            <li style="background-color:purple;font-size:25pt;font-style:italic;height:170px;width:165px;padding-left:11px;padding-top:95px;">User: {{ user.get_username }}</li>
+            <li style="background-color:purple;font-size:25pt;font-style:italic;height:1030px;width:165px;padding-left:11px;padding-top:40px;"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+      {% else %}
+            <li style="background-color:purple;font-size:25pt;font-style:italic;height:1030px;width:165px;padding-left:11px;padding-top:90px;"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+      {% endif %}
       </ul>
      {% endblock %}
       </div>
